@@ -1,0 +1,9 @@
+experiment_name: ${weak_label_type}-${loss_func.loss_type}-${dataset}-${model}
+
+dataset: cifar10
+model: wrn_28_2
+weak_label_type: complementary_labels
+loss_func:
+  loss_type: backward
+  base_loss: cross_entropy
+learning_rate: 0.003
