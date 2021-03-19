@@ -1,6 +1,6 @@
 # Lower-bounded proper losses for weakly supervised classification
 
-This directory contains codes for experiments in the following paper: **to appear**
+This directory contains codes for experiments in the following paper: https://arxiv.org/abs/2103.02893
 
 ## Usage
 
