@@ -1,4 +1,4 @@
-# Lower-bounded proper losses for weakly supervised classification
+# Lower-Bounded Proper Losses for Weakly Supervised Classification
 
 Shuhei M. Yoshida, Takashi Takenouchi, Masashi Sugiyama \
 International Conference on Machine Learning, 2021 \
