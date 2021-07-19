@@ -5,6 +5,8 @@ import torch.nn.functional as F
 from config_schema import ConfigSchema
 from data.weak_labels import WeakLabelManager
 
+from .gls import GeneralizedLogitSqueezing
+
 
 class WeakLabelLoss(nn.Module):
     def __init__(self, wlm: WeakLabelManager) -> None:
@@ -33,25 +35,20 @@ class BackwardCorrectionLogitSqueezingLoss(WeakLabelLoss):
         super().__init__(wlm)
         loss_cfg = config.loss_func
         self.base_loss = loss_cfg.base_loss
+
         assert all([key in ("coefficient", "exponent") for key in loss_cfg.kwargs])
-        self.register_buffer(
-            "exponent", torch.tensor(loss_cfg.kwargs.get("exponent", 2.0))
-        )
+        self.gls = GeneralizedLogitSqueezing(loss_cfg.kwargs.get("exponent", 2.0))
         self.register_buffer(
             "coefficient", torch.tensor(loss_cfg.kwargs["coefficient"]) / self.exponent
         )
         self.kwargs = loss_cfg.kwargs
 
     def forward(self, scores: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
-        batch_size = scores.size(0)
         if self.base_loss == "cross_entropy":
             log_p = F.log_softmax(scores, dim=1)
             Rlog_p = torch.mm(log_p, self.R)  # type: ignore
-            logits = scores - scores.mean(dim=1, keepdim=True)
-            logit_reg = (
-                self.coefficient * ((logits.abs()) ** self.exponent).sum()  # type: ignore
-            ) / batch_size
-            return F.nll_loss(Rlog_p, targets) + logit_reg
+            gls = self.gls(scores)
+            return F.nll_loss(Rlog_p, targets) + self.coefficient * gls
         raise ValueError(f"unknown base loss type {self.base_loss}")
 
 
