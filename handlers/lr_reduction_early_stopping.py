@@ -1,6 +1,7 @@
-from copy import copy
 import logging
-from typing import Callable, Optional, OrderedDict, List
+from copy import copy
+from typing import Callable, List, Optional, OrderedDict
+
 from ignite.engine import Engine
 from torch.optim import Optimizer
 

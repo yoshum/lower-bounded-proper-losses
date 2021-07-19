@@ -1,9 +1,10 @@
-from config_schema import ConfigSchema
 from typing import Union
+
 import numpy as np
 from torch.utils.data import Subset
 from torchvision.datasets import VisionDataset
 
+from config_schema import ConfigSchema
 
 DatasetTypes = Union[VisionDataset, Subset]
 

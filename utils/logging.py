@@ -2,10 +2,12 @@ from datetime import datetime
 from logging import Logger
 from pathlib import Path
 from typing import Dict
+
 import ignite
 import ignite.distributed as idist
 import torch
 from omegaconf import OmegaConf
+
 from config_schema import ConfigSchema
 
 

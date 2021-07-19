@@ -1,4 +1,5 @@
 from typing import Type
+
 from omegaconf import DictConfig, OmegaConf
 
 

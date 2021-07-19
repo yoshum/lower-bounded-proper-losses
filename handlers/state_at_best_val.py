@@ -1,4 +1,5 @@
-from typing import Any, Dict, Callable, Optional
+from typing import Any, Callable, Dict, Optional
+
 from ignite.engine import Engine
 
 

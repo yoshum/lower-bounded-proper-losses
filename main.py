@@ -2,19 +2,18 @@ from logging import Logger
 from pathlib import Path
 from typing import Any, Callable, Dict, Tuple
 
+import ignite.distributed as idist
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.optim import Optimizer
-from torch.utils.data import DataLoader
-
-import ignite.distributed as idist
-from ignite.engine import Events, Engine, create_supervised_evaluator
-from ignite.metrics import Accuracy, Loss, Metric
-from ignite.handlers import Checkpoint, DiskSaver
-from ignite.utils import manual_seed, setup_logger
 from ignite.contrib.engines import common
 from ignite.contrib.handlers import ProgressBar
+from ignite.engine import Engine, Events, create_supervised_evaluator
+from ignite.handlers import Checkpoint, DiskSaver
+from ignite.metrics import Accuracy, Loss, Metric
+from ignite.utils import manual_seed, setup_logger
+from torch.optim import Optimizer
+from torch.utils.data import DataLoader
 
 from config_schema import ConfigSchema
 from data.data_loader import get_dataflow
@@ -23,8 +22,8 @@ from handlers.lr_scheduler import get_lr_scheduler
 from handlers.state_at_best_val import StateAtBestVal
 from modules.losses import get_weak_label_loss
 from modules.models import get_model
-from utils.logging import log_basic_info, log_metrics, prepare_output_directory
 from utils.config import load_and_validate_config
+from utils.logging import log_basic_info, log_metrics, prepare_output_directory
 
 
 def run(config: ConfigSchema) -> None:

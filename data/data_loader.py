@@ -1,8 +1,11 @@
-from data.weak_labels import WeakLabelManager
 from typing import Dict
+
 import ignite.distributed as idist
 from torch.utils.data import DataLoader
+
 from config_schema import ConfigSchema
+from data.weak_labels import WeakLabelManager
+
 from .datasets import get_dataset
 
 

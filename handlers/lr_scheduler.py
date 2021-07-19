@@ -1,9 +1,10 @@
-from ignite.engine import Engine
 from ignite.contrib.handlers import (
     CosineAnnealingScheduler,
     create_lr_scheduler_with_warmup,
 )
+from ignite.engine import Engine
 from torch.optim import Optimizer
+
 from config_schema import ConfigSchema
 from handlers.lr_reduction_early_stopping import LRReductionEarlyStopping
 
