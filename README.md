@@ -1,6 +1,11 @@
 # Lower-bounded proper losses for weakly supervised classification
 
-This directory contains codes for experiments in the following paper: https://arxiv.org/abs/2103.02893
+Shuhei M. Yoshida, Takashi Takenouchi, Masashi Sugiyama
+
+International Conference on Machine Learning, 2021
+
+[[`ICML`](https://icml.cc/Conferences/2021/Schedule?showEvent=8643)]
+[[`arXiv`](https://arxiv.org/abs/2103.02893)]
 
 ## Usage
 
