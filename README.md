@@ -1,11 +1,14 @@
 # Lower-bounded proper losses for weakly supervised classification
 
-Shuhei M. Yoshida, Takashi Takenouchi, Masashi Sugiyama
-
-International Conference on Machine Learning, 2021
-
+Shuhei M. Yoshida, Takashi Takenouchi, Masashi Sugiyama \
+International Conference on Machine Learning, 2021 \
 [[`ICML`](https://icml.cc/Conferences/2021/Schedule?showEvent=8643)]
 [[`arXiv`](https://arxiv.org/abs/2103.02893)]
+
+## Features
+
+- Implementation of generalized logit squeezing ([LINK](modules/gls.py))
+- Code and configs that enable reproduction of expeiments in [the paper](https://arxiv.org/abs/2103.02893)
 
 ## Usage
 
