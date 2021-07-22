@@ -2,7 +2,7 @@
 
 Shuhei M. Yoshida, Takashi Takenouchi, Masashi Sugiyama \
 International Conference on Machine Learning, 2021 \
-[[`ICML`](https://icml.cc/Conferences/2021/Schedule?showEvent=8643)]
+[[`ICML Proceedings`](http://proceedings.mlr.press/v139/yoshida21a)]
 [[`arXiv`](https://arxiv.org/abs/2103.02893)]
 
 ## Features
